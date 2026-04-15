@@ -12,6 +12,7 @@ This project demonstrates the implementation of a Library Management System usin
 ![image alt](https://github.com/kanishka-sehrawat/Library-Management-System/blob/9caa837dc50b43e230f2aca94fc9567e50c4734c/library.jpg)
 
 **OBJECTIVES **
+
 **1.Set up the Library Management System Database:** Create and populate the database with tables for branches, employees, members, books, issued status, and return status.
 
 **2.CRUD Operations:** Perform Create, Read, Update, and Delete operations on the data.
@@ -21,6 +22,7 @@ This project demonstrates the implementation of a Library Management System usin
 **4.Advanced SQL Queries:** Develop complex queries to analyze and retrieve specific data.
 
 **PROJECT STRUCTURE**
+
 **1. Database Setup:**
-![image alt](
+![image alt](https://github.com/kanishka-sehrawat/Library-Management-System/blob/d0a38a543059afae31a57eb6a35cedcc6ff02f24/library.erd.png)
 
