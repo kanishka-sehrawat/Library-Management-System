@@ -24,5 +24,5 @@ This project demonstrates the implementation of a Library Management System usin
 **PROJECT STRUCTURE**
 
 **1. Database Setup:**
-![image alt](https://github.com/kanishka-sehrawat/Library-Management-System/blob/d0a38a543059afae31a57eb6a35cedcc6ff02f24/library.erd.png)
+![image alt](
 
