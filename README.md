@@ -75,4 +75,10 @@ CREATE TABLE return_status(return_id varchar(10),
                           return_date date ,
                           return_book_isbn varchar(20));
 ```
- 
+
+## CRUD Operations:
+
+- **Create**: Inserted sample records into the books table.
+- **Read**: Retrieved and displayed data from various tables.
+- **Update**: Updated records in the employees table.
+- **Delete**: Removed records from the members table as needed.
