@@ -119,7 +119,7 @@ HAVING count(issued_member_id)>1 order by count(issued_member_id);
 ```
 
 ### 3. CTAS (Create Table As Select)
-**TASK 6. Create summary tables: Used CTAS to generate new tables based on query results - each book and total book_issued_count.
+**TASK 6. Create summary tables: Used CTAS to generate new tables based on query results - each book and total book_issued_count.**
 ```sql
 CREATE TABLE book_counts
 AS 
@@ -129,5 +129,7 @@ ON b.isbn=ist.issued_book_isbn group by b.isbn,b.book_title;
 ```
 
 **TASK 7. Retrieve all books in a specific category**
+```sql
 SELECT * FROM books WHERE category='Classic';
+```
 
