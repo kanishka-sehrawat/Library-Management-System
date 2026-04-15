@@ -82,3 +82,52 @@ CREATE TABLE return_status(return_id varchar(10),
 - **Read**: Retrieved and displayed data from various tables.
 - **Update**: Updated records in the employees table.
 - **Delete**: Removed records from the members table as needed.
+
+  ** TASK 1.Create a new  book records**
+  --"978-1-60129-456-2','To Kill a Mockingbird','Classic',6.00,'yes','Harper Lee','J.B.Lippincott & Co.')"
+  ```sql
+  INSERT INTO books(isbn,book_title,category,rental_price,status,author,publisher) values('978-1-60129-456-2','To Kill a Mockingbird','Classic',
+6.00,'yes','Harper Lee','J.B.Lippincott & Co.');
+```
+
+**TASK 2.Update an existing members address**
+```sql
+UPDATE members
+SET member_address='125 Main St'
+WHERE member_id='C101';
+```
+
+**TASK 3. Delete a record from the issued status table**
+-- objective :- Delete the record with issued_id='IS107' from the issued_status table.
+```sql
+SET SQL_SAFE_UPDATES=0;
+DELETE FROM issued_status WHERE issued_id='IS120';
+SET SQL_SAFE_UPDATES=1;
+```
+
+**TASK 4.Retrieve all books issued by specific employee**
+-- OBJECTIVE:- Select  all books issued by the employee with emp_id='E101'
+```sql
+SELECT issued_book_name as book from issued_status where issued_emp_id='E101';
+```
+
+ **TASK 5. List members who have issued more than one book**
+ -- OBJECTIVE:-GROUP BY to find members who have issued more than one book
+ ```sql
+SELECT count(issued_member_id) as number_of_time_issued,issued_member_id from issued_status status group by issued_member_id 
+HAVING count(issued_member_id)>1 order by count(issued_member_id);
+```
+
+### 3. CTAS (Create Table As Select)
+**TASK 6. Create summary tables: Used CTAS to generate new tables based on query results - each book and total book_issued_count.
+```sql
+CREATE TABLE book_counts
+AS 
+SELECT b.isbn,b.book_title ,count(ist.issued_id) as no_issued
+from books as b JOIN issued_status as ist 
+ON b.isbn=ist.issued_book_isbn group by b.isbn,b.book_title;
+```
+
+**TASK 7. Retrieve all books in a specific category**
+SELECT * FROM books WHERE category='Classic';
+
