@@ -27,20 +27,25 @@ This project demonstrates the implementation of a Library Management System usin
 ![image alt](https://github.com/kanishka-sehrawat/Library-Management-System/blob/917317cb93667ae0577830272c7218caf213af9f/library_erd.png)
 
 -**Database Creation**: Created a database named library_db.
+
 -**Table Creation**: Created tables for branches, employees, members, books, issued status, and return status. Each table includes relevant columns and relationships.
  
- ```sql 
- CREATE TABLE branch(branch_id varchar(10) PRIMARY KEY,
+ ```sql
+CREATE DATABASE library_db;
+
+-- Create table "branch"--
+CREATE TABLE branch(branch_id varchar(10) PRIMARY KEY,
 				   manager_id varchar(10),
                    branch_address varchar(50),
                    contact_no varchar(10));
 
+-- create table "employees" --
 CREATE TABLE employees(emp_id varchar(10 ) PRIMARY KEY,
 	                   emp_name varchar(25),
                        position varchar(20),
                        salary int,
                        branch_id varchar(15));
-					
+-- create table "books"	--				
 CREATE TABLE books(isbn varchar(20) PRIMARY KEY,
 	               book_title varchar(70),
                    category	varchar(15),
@@ -49,20 +54,21 @@ CREATE TABLE books(isbn varchar(20) PRIMARY KEY,
                    author varchar(20),
                    publisher varchar(35));
 
-
+-- create table "members" --
 CREATE TABLE members(member_id varchar(20) PRIMARY KEY,
 	                 member_name varchar(30),
                      member_address varchar(75),
                      reg_date date);
                      
-
+-- create table "issued_status" --
 CREATE TABLE issued_status(issued_id varchar(10) PRIMARY KEY,
 						issued_member_id varchar(10),
                         issued_book_name varchar(75),
                         issued_date date,
                         issued_book_isbn varchar(25),
                         issued_emp_id varchar(10));
-                        
+
+-- create table "return_status" --                        
 CREATE TABLE return_status(return_id varchar(10),
                           issued_id	varchar(10),
                           return_book_name varchar(75),
