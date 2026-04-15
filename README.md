@@ -1,5 +1,5 @@
 # Library-Management-System
-**PROJECT OVERVIEW**
+# Project Overview
 
 **Project Title**: Library Management System
 
@@ -11,7 +11,7 @@ This project demonstrates the implementation of a Library Management System usin
 
 ![image alt](https://github.com/kanishka-sehrawat/Library-Management-System/blob/9caa837dc50b43e230f2aca94fc9567e50c4734c/library.jpg)
 
-**OBJECTIVES **
+# Objectives
 
 **1.Set up the Library Management System Database:** Create and populate the database with tables for branches, employees, members, books, issued status, and return status.
 
