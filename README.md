@@ -151,6 +151,7 @@ SELECT * FROM members WHERE reg_date >= CURRENT_DATE- INTERVAL 180 day ;
 ```sql
 SELECT e1.*,e1.emp_name as manager, b.branch_id from employees as e1 JOIN employees as e2 ON
 e1.branch_id=e2.branch_id JOIN branch as b on b.manager_id=e1.emp_id;
+```
 
 **TASK 11.Create a table of books with rental price above a certain threshold 7 usd**
 ```sql
