@@ -160,7 +160,7 @@ AS
 SELECT * FROM books WHERE rental_price>7;
 ```
 
-**TASK 12.Retrieve the list of book not yet returned **
+### TASK 12.Retrieve the list of book not yet returned 
 ```sql
 SELECT ist.*, rs.return_id FROM issued_status as ist LEFT JOIN return_status as rs
 ON ist.issued_id=rs.issued_id
@@ -180,7 +180,7 @@ LEFT JOIN return_status as rts on rts.issued_id=ist.issued_id WHERE rts.return_d
 AND DATEDIFF(CURRENT_DATE,ist.issued_date)>30 order by ist.issued_member_id;
 ```
 
-### - TASK 14- Update booook status on return.
+### TASK 14- Update booook status on return.
 **Write a query to update the status of books in the books table to "yes" when they are returned
 (based on enteries in the return_status table).**
 ```sql
