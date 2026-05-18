@@ -230,7 +230,7 @@ SELECT m.member_name,ist.issued_book_name ,COUNT(*) as no_of_times_damage_books 
  ON m.member_id =ist.issued_member_id JOIN return_status as rts ON 
 ist.issued_id=rts.issued_id WHERE book_quality = 'Damaged' GROUP BY m.member_id,ist.issued_book_name ;
 
--- query for:
+-- query for:managing the issuance status of books in the library management system.
 
 -- STORED PROCEDURE
 DELIMITER $$ 
