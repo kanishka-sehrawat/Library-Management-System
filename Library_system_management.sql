@@ -137,11 +137,11 @@ select count(*) from return_status ;
 
 
 -- query for:identifing members who have overdue books (30 day return period)
-SELECT ist.issued_member_id,mb.member_name,ist.issued_book_name as book_name,ist.issued_date,
-DATEDIFF(CURRENT_DATE,ist.issued_date) as overdue_days
-FROM issued_status as ist JOIN members as mb ON ist.issued_member_id=mb.member_id
-LEFT JOIN return_status as rts on rts.issued_id=ist.issued_id WHERE rts.return_date IS NULL
- AND DATEDIFF(CURRENT_DATE,ist.issued_date)>30 order by ist.issued_member_id;
+select ist.issued_id,m.member_name,issued_book_name,issued_date,return_date,return_id ,
+datediff(coalesce(rst.return_date,current_date),issued_date) as days_overdue
+from issued_status ist  join members m on
+ist.issued_member_id=m.member_id left join return_status rst on ist.issued_id=rst.issued_id
+ where datediff(coalesce(rst.return_date,current_date),issued_date)>30;
 
 
 -- query for:managing the issuance status of books in the library management system.
