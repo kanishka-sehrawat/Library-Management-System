@@ -107,20 +107,18 @@ SET SQL_SAFE_UPDATES=1;
 ```
 
 **query for:retrieving all books issued by specific employee**
--- OBJECTIVE:- Select  all books issued by the employee with emp_id='E101'
 ```sql
 SELECT issued_book_name as book from issued_status where issued_emp_id='E101';
 ```
 
  **query for:listing members who have issued more than one book**
- -- OBJECTIVE:-GROUP BY to find members who have issued more than one book
  ```sql
 SELECT count(issued_member_id) as number_of_time_issued,issued_member_id
 from issued_status status group by issued_member_id 
 HAVING count(issued_member_id)>1 order by count(issued_member_id);
 ```
 
-### query for:generating new table with each book and total book_issued_count.**
+**query for:generating new table with each book and total book_issued_count.**
 ```sql
 CREATE TABLE book_counts
 AS 
@@ -159,14 +157,14 @@ AS
 SELECT * FROM books WHERE rental_price>7;
 ```
 
-### query for:retrieving the list of book not yet returned 
+**query for:retrieving the list of book not yet returned.** 
 ```sql
 SELECT ist.*, rs.return_id FROM issued_status as ist LEFT JOIN return_status as rs
 ON ist.issued_id=rs.issued_id
 WHERE rs.return_id is NULL;
 ```
 
-### query for: Identifing members who have overdue books(30 day return -period).
+**query for: Identifing members who have overdue books(30 day return -period).**
 ```sql
 SELECT ist.issued_member_id,mb.member_name,ist.issued_book_name as book_name,ist.issued_date,
 DATEDIFF(CURRENT_DATE,ist.issued_date) as overdue_days
@@ -175,7 +173,7 @@ LEFT JOIN return_status as rts on rts.issued_id=ist.issued_id WHERE rts.return_d
 AND DATEDIFF(CURRENT_DATE,ist.issued_date)>30 order by ist.issued_member_id;
 ```
 
-### query for:updating the status of books in the books table to "yes" when they are returned
+**query for:updating the status of books in the books table to "yes" when they are returned**
 ```sql
 -- STORE PROCEDURE 
 DELIMITER $$
@@ -213,7 +211,7 @@ END $$
 CALL add_return_records('RS125','IS130','good');
 ```
 
-###  query for: generating a performance report for each branch , showing the number of books issued, the number of books returned,and the total revenue generated from book rentals.
+**query for: generating a performance report for each branch , showing the number of books issued, the number of books returned,and the total revenue generated from book rentals.**
 ```sql
 CREATE TABLE  branch_reports
 AS
@@ -223,7 +221,7 @@ ON rst.issued_id=ist.issued_id LEFT  JOIN books  as b ON ist.issued_book_isbn=b.
 ```
 
 
-### query for:CTAS: Creating a new table active_members containing members who have issued at least one book in the last 6 months.
+**query for:CTAS: Creating a new table active_members containing members who have issued at least one book in the last 6 months.**
 ```sql
 CREATE TABLE active_members
 AS
@@ -239,14 +237,14 @@ SELECT e.emp_name,COUNT(issued_book_name) as no_of_book_issued,e.branch_id FROM 
 issued_status as ist ON e.emp_id=ist.issued_emp_id GROUP BY e.emp_id ORDER BY COUNT(issued_book_name) desc LIMIT 3;
 ```
 
-### query for:identifing members who have issued books more than twice with the status'damaged' in the books table. 
+**query for:identifing members who have issued books more than twice with the status'damaged' in the books table.**
 ```sql
 SELECT m.member_name,ist.issued_book_name ,COUNT(*) as no_of_times_damage_books FROM members as m JOIN issued_status as ist
  ON m.member_id =ist.issued_member_id JOIN return_status as rts ON 
 ist.issued_id=rts.issued_id WHERE book_quality = 'Damaged' GROUP BY m.member_id,ist.issued_book_name ;
 ```
 
-### query for:managing the issuance status of books in the library management system.
+**query for:managing the issuance status of books in the library management system.**
 ```sql
 -- STORED PROCEDURE
 DELIMITER $$ 
@@ -281,7 +279,7 @@ END $$
 CALL issue_book('IS106','C106','978-0-330-25864-8','E104');
 ```
 
-### query for:creating a new table named overdue_fines that stores details of members who have overdue books.
+**query for:creating a new table named overdue_fines that stores details of members who have overdue books.**
 ```sql
 CREATE TABLE overdue_fine AS
 SELECT mb.member_id , mb.member_name,COUNT(issued_date) as no_of_overdue, SUM(datediff(current_date,issued_date)*0.50) as total_fine
