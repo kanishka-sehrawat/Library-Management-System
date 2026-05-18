@@ -33,19 +33,19 @@ This project demonstrates the implementation of a Library Management System usin
  ```sql
 CREATE DATABASE library_db;
 
--- Create table "branch"--
+--"branch" TABLE
 CREATE TABLE branch(branch_id varchar(10) PRIMARY KEY,
 				   manager_id varchar(10),
                    branch_address varchar(50),
                    contact_no varchar(10));
 
--- create table "employees" --
+-- "employees" TABLE--
 CREATE TABLE employees(emp_id varchar(10 ) PRIMARY KEY,
 	                   emp_name varchar(25),
                        position varchar(20),
                        salary int,
                        branch_id varchar(15));
--- create table "books"	--				
+-- "books" TABLE --				
 CREATE TABLE books(isbn varchar(20) PRIMARY KEY,
 	               book_title varchar(70),
                    category	varchar(15),
@@ -54,13 +54,13 @@ CREATE TABLE books(isbn varchar(20) PRIMARY KEY,
                    author varchar(20),
                    publisher varchar(35));
 
--- create table "members" --
+-- "members" TABLE --
 CREATE TABLE members(member_id varchar(20) PRIMARY KEY,
 	                 member_name varchar(30),
                      member_address varchar(75),
                      reg_date date);
                      
--- create table "issued_status" --
+-- "issued_status" TABLE--
 CREATE TABLE issued_status(issued_id varchar(10) PRIMARY KEY,
 						issued_member_id varchar(10),
                         issued_book_name varchar(75),
@@ -68,7 +68,7 @@ CREATE TABLE issued_status(issued_id varchar(10) PRIMARY KEY,
                         issued_book_isbn varchar(25),
                         issued_emp_id varchar(10));
 
--- create table "return_status" --                        
+-- "return_status" TABLE --                        
 CREATE TABLE return_status(return_id varchar(10),
                           issued_id	varchar(10),
                           return_book_name varchar(75),
