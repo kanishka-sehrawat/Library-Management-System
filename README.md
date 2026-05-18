@@ -127,7 +127,6 @@ from books as b JOIN issued_status as ist
 ON b.isbn=ist.issued_book_isbn group by b.isbn,b.book_title;
 ```
 
-### 4.Data Analysis and Findings
 **query for:retrieving all books in a specific category**
 ```sql
 SELECT * FROM books WHERE category='Classic';
@@ -231,7 +230,7 @@ SELECT DISTINCT(issued_member_id)
 FROM issued_status WHERE issued_date>=curdate()-interval 6 MONTH);
 ```
 
-### query for: finding the top 3 employees who have processed the most book issues.
+**query for: finding the top 3 employees who have processed the most book issues.**
 ```sql
 SELECT e.emp_name,COUNT(issued_book_name) as no_of_book_issued,e.branch_id FROM employees as e JOIN 
 issued_status as ist ON e.emp_id=ist.issued_emp_id GROUP BY e.emp_id ORDER BY COUNT(issued_book_name) desc LIMIT 3;
