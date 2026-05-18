@@ -83,8 +83,7 @@ CREATE TABLE return_status(return_id varchar(10),
 - **Update**: Updated records in the employees table.
 - **Delete**: Removed records from the members table as needed.
 
-  ** query for:Creating a new  book records**
-  --"978-1-60129-456-2','To Kill a Mockingbird','Classic',6.00,'yes','Harper Lee','J.B.Lippincott & Co.')"
+**query for:Creating a new  book records**
 ```sql
 INSERT INTO books(isbn,book_title,category,rental_price,status,author,publisher)
 values('978-1-60129-456-2','To Kill a Mockingbird','Classic',
