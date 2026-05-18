@@ -99,7 +99,7 @@ WHERE member_id='C101';
 ```
 
 **query for:deleting a record from the issued status table**
--- objective :- Delete the record with issued_id='IS107' from the issued_status table.
+
 ```sql
 SET SQL_SAFE_UPDATES=0;
 DELETE FROM issued_status WHERE issued_id='IS120';
